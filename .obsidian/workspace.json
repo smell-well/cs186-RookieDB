@@ -25,13 +25,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Readme.md",
+                "file": "Resources/project-handout/proj1/testing.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -97,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Resources/README.md",
+                "file": "Resources/project-handout/proj1/testing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Resources/README.md",
+                "file": "Resources/project-handout/proj1/testing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Resources/README.md"
+                "file": "Resources/project-handout/proj1/testing.md"
               }
             }
           },
@@ -154,7 +155,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -167,8 +169,20 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "9d13ec5a9125d44d",
+  "active": "1a8e12c27d9982ea",
   "lastOpenFiles": [
+    "新建 文本文档.txt",
+    "Resources/CS186-proj1-master.zip",
+    "Resources/未确认 327127.crdownload",
+    "Resources/README.md",
+    "Resources/project-handout/proj1.md",
+    "Resources/project-handout/proj1/getting-started.md",
+    "Resources/project-handout/proj1/README.md",
+    "Resources/project-handout/proj0/your-tasks.md",
+    "Resources/project-handout/proj0/submitting.md",
+    "Resources/project-handout/proj0/README.md",
+    "Resources/project-handout/proj0/getting-started.md",
+    "Resources/project-handout/hw0/README.md",
     "Readme.md",
     "RookieDB/demo/5",
     "RookieDB/demo/4",
@@ -177,9 +191,6 @@
     "RookieDB/demo/1",
     "RookieDB/demo/0",
     "RookieDB/demo",
-    "RookieDB/target/test-classes/edu/berkeley/cs186/database/TimeoutScaling.class",
-    "RookieDB/target/test-classes/edu/berkeley/cs186/database/TestUtils.class",
-    "RookieDB/target/test-classes/edu/berkeley/cs186/database/TestDatabaseRecoveryIntegration.class",
-    "Resources/README.md"
+    "RookieDB/target/test-classes/edu/berkeley/cs186/database/TimeoutScaling.class"
   ]
 }
