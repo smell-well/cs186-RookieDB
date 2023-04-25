@@ -1,0 +1,185 @@
+{
+  "main": {
+    "id": "078f1b1a0231af8a",
+    "type": "split",
+    "children": [
+      {
+        "id": "3bb1ffefbd6f016a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9d13ec5a9125d44d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Resources/README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "21f78307358d750e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Readme.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e5629a85e4ce7a39",
+    "type": "split",
+    "children": [
+      {
+        "id": "db5e02c1d6fc4baf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a8e12c27d9982ea",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0e2b7fec62caa466",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "51e06d48e5939afb",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "4d47640cca8cd8a3",
+    "type": "split",
+    "children": [
+      {
+        "id": "e1549569166c7861",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "742ff4f85b7bcfb5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Resources/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6607329371903b8a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Resources/README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9af683089a07b036",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "5786d0786d618c42",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Resources/README.md"
+              }
+            }
+          },
+          {
+            "id": "367ea9e168addaff",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
+    }
+  },
+  "active": "9d13ec5a9125d44d",
+  "lastOpenFiles": [
+    "Readme.md",
+    "RookieDB/demo/5",
+    "RookieDB/demo/4",
+    "RookieDB/demo/3",
+    "RookieDB/demo/2",
+    "RookieDB/demo/1",
+    "RookieDB/demo/0",
+    "RookieDB/demo",
+    "RookieDB/target/test-classes/edu/berkeley/cs186/database/TimeoutScaling.class",
+    "RookieDB/target/test-classes/edu/berkeley/cs186/database/TestUtils.class",
+    "RookieDB/target/test-classes/edu/berkeley/cs186/database/TestDatabaseRecoveryIntegration.class",
+    "Resources/README.md"
+  ]
+}
