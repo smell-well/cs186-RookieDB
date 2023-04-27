@@ -23,5 +23,5 @@ target/*
 
 # ignore submission files
 hw*.zip
-
+sqlite3.exe
 lahman.db

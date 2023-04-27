@@ -178,10 +178,25 @@ AS
 -- Question 4iv
 CREATE VIEW q4iv(playerid, namefirst, namelast, salary, yearid)
 AS
-  SELECT 1, 1, 1, 1, 1 -- replace this line
+    SELECT playerid, namefirst, namelast, salary, yearid
+    FROM people NATURAL JOIN salaries
+    GROUP BY yearid
+    HAVING yearid = '2000' and salary = MAX(salary)
+    UNION
+    SELECT playerid, namefirst, namelast, salary, yearid
+    FROM people NATURAL JOIN salaries
+    GROUP BY yearid
+    HAVING yearid = '2001' and salary = MAX(salary)
 ;
 -- Question 4v
 CREATE VIEW q4v(team, diffAvg) AS
-  SELECT 1, 1 -- replace this line
+    SELECT t.teamid, (MAX(salary) - MIN(salary)) as diffAvg
+    FROM salaries INNER JOIN (
+            SELECT playerid, teamid, yearid
+            FROM allstarfull
+            where yearid = '2016'
+        ) as t ON salaries.playerid = t.playerid and t.yearid = salaries.yearid
+
+    GROUP BY t.teamid
 ;
 
