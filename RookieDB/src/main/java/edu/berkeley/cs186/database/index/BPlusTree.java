@@ -145,9 +145,11 @@ public class BPlusTree {
         // TODO(proj4_integration): Update the following line
         LockUtil.ensureSufficientLockHeld(lockContext, LockType.NL);
 
-        // TODO(proj2): implement
-
-        return Optional.empty();
+//        toDotPDFFile("tree.pdf");
+        LeafNode leaf = root.get(key);
+        
+        // 查找 leaf 里面有没有答案
+        return leaf.getRecordInfo(key);
     }
 
     /**
@@ -201,9 +203,8 @@ public class BPlusTree {
         // TODO(proj4_integration): Update the following line
         LockUtil.ensureSufficientLockHeld(lockContext, LockType.NL);
 
-        // TODO(proj2): Return a BPlusTreeIterator.
 
-        return Collections.emptyIterator();
+        return new BPlusTreeIterator(root);
     }
 
     /**
@@ -234,9 +235,7 @@ public class BPlusTree {
         // TODO(proj4_integration): Update the following line
         LockUtil.ensureSufficientLockHeld(lockContext, LockType.NL);
 
-        // TODO(proj2): Return a BPlusTreeIterator.
-
-        return Collections.emptyIterator();
+        return new BPlusTreeIterator(root, key);
     }
 
     /**
@@ -253,12 +252,14 @@ public class BPlusTree {
         // TODO(proj4_integration): Update the following line
         LockUtil.ensureSufficientLockHeld(lockContext, LockType.NL);
 
-        // TODO(proj2): implement
         // Note: You should NOT update the root variable directly.
         // Use the provided updateRoot() helper method to change
         // the tree's root if the old root splits.
 
-        return;
+        Optional<Pair<DataBox, Long>> res = root.put(key, rid);
+
+        // 需要拆分出新的root
+        res.ifPresent(this::splitToNewRoot);
     }
 
     /**
@@ -282,10 +283,18 @@ public class BPlusTree {
         // TODO(proj4_integration): Update the following line
         LockUtil.ensureSufficientLockHeld(lockContext, LockType.NL);
 
-        // TODO(proj2): implement
         // Note: You should NOT update the root variable directly.
         // Use the provided updateRoot() helper method to change
         // the tree's root if the old root splits.
+
+        while (data.hasNext()) {
+            Optional<Pair<DataBox, Long>> ret = root.bulkLoad(data, fillFactor);
+            if (ret.isPresent()) {
+                splitToNewRoot(ret.get());
+            } else {
+                break;
+            }
+        }
 
         return;
     }
@@ -306,9 +315,7 @@ public class BPlusTree {
         // TODO(proj4_integration): Update the following line
         LockUtil.ensureSufficientLockHeld(lockContext, LockType.NL);
 
-        // TODO(proj2): implement
-
-        return;
+        root.remove(key);
     }
 
     // Helpers /////////////////////////////////////////////////////////////////
@@ -320,6 +327,20 @@ public class BPlusTree {
         // TODO(proj4_integration): Update the following line
         LockUtil.ensureSufficientLockHeld(lockContext, LockType.NL);
         return root.toSexp();
+    }
+
+    public void splitToNewRoot(Pair<DataBox, Long> entry) {
+
+        List<DataBox> keys = new ArrayList<>();
+        List<Long> children = new ArrayList<>();
+
+        keys.add(entry.getFirst());
+
+        children.add(root.getPage().getPageNum());
+        children.add(entry.getSecond());
+
+        BPlusNode newRoot = new InnerNode(metadata, bufferManager, keys, children, lockContext);
+        updateRoot(newRoot);
     }
 
     /**
@@ -420,20 +441,58 @@ public class BPlusTree {
 
     // Iterator ////////////////////////////////////////////////////////////////
     private class BPlusTreeIterator implements Iterator<RecordId> {
-        // TODO(proj2): Add whatever fields and constructors you want here.
+
+        LeafNode currLeaf;
+        Iterator<RecordId> iter;
+
+        BPlusTreeIterator(BPlusNode root) {
+            currLeaf = root.getLeftmostLeaf();
+            iter = currLeaf.scanAll();
+        }
+
+        BPlusTreeIterator(BPlusNode root, DataBox key) {
+            currLeaf = root.get(key);
+            iter = currLeaf.scanGreaterEqual(key);
+        }
+
+        public void nextLeaf() {
+            if (hasNextLeaf()) {
+                currLeaf = currLeaf.getRightSibling().get();
+            } else {
+                throw new NoSuchElementException();
+            }
+        }
+
+        public boolean hasNextLeaf() {
+            return currLeaf.hasRightSibling();
+        }
 
         @Override
         public boolean hasNext() {
-            // TODO(proj2): implement
-
-            return false;
+            if (!iter.hasNext() && !hasNextLeaf()) {
+                return false;
+            }
+            return true;
         }
 
         @Override
         public RecordId next() {
-            // TODO(proj2): implement
+            if (!this.hasNext()) {
+                throw new NoSuchElementException();
+            }
+            // 如果不需要换叶子节点
+            if (iter.hasNext()) {
+                return iter.next();
+            }
 
-            throw new NoSuchElementException();
+            this.nextLeaf();
+            iter = currLeaf.scanAll();
+            // 这个是来判断是否这个叶子是空的
+            if (!iter.hasNext()) {
+                return this.next();
+            }
+            return iter.next();
         }
+
     }
 }

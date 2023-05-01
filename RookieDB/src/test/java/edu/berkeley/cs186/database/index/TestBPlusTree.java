@@ -131,6 +131,7 @@ public class TestBPlusTree {
         assertEquals("()", tree.toSexp());
 
         List<Pair<DataBox, RecordId>> data = new ArrayList<>();
+
         for (int i = 1; i <= 11; ++i) {
             data.add(new Pair<>(new IntDataBox(i), new RecordId(i, (short) i)));
         }
