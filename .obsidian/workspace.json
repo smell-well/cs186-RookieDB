@@ -77,6 +77,14 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "a8b06b0bbfb695cc",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
@@ -170,23 +178,23 @@
   },
   "active": "280636186b43d12f",
   "lastOpenFiles": [
-    "RookieDB/target/classes/edu/berkeley/cs186/database/query/join/SortMergeOperator.class",
-    "RookieDB/target/classes/edu/berkeley/cs186/database/query/join/SortMergeOperator$1.class",
-    "RookieDB/target/classes/edu/berkeley/cs186/database/query/join/SortMergeOperator$SortMergeIterator.class",
-    "RookieDB/target/classes/edu/berkeley/cs186/database/query/SortOperator.class",
-    "RookieDB/target/classes/edu/berkeley/cs186/database/query/SortOperator$1.class",
-    "RookieDB/target/classes/edu/berkeley/cs186/database/query/SortOperator$RecordPairComparator.class",
-    "RookieDB/target/classes/edu/berkeley/cs186/database/query/SortOperator$RecordComparator.class",
+    "Notes/Query Opt.md",
+    "RookieDB/demo/34",
+    "RookieDB/demo/33",
+    "RookieDB/demo/32",
+    "RookieDB/demo/31",
+    "RookieDB/demo/30",
+    "RookieDB/demo/29",
+    "RookieDB/demo/28",
+    "RookieDB/demo/27",
+    "RookieDB/demo/26",
+    "RookieDB/demo/25",
+    "Readme.md",
     "Notes/排序.md",
     "Notes/Hash.md",
-    "Readme.md",
     "implement/Proj1.md",
     "implement/Proj2.md",
     "implement/Proj3.md",
-    "implement",
-    "RookieDB/target/classes/edu/berkeley/cs186/database/query/join/GHJOperator.class",
-    "RookieDB/target/classes/edu/berkeley/cs186/database/query/join/BNLJOperator.class",
-    "RookieDB/target/classes/edu/berkeley/cs186/database/query/join/BNLJOperator$1.class",
     "Notes/B+树.md",
     "Notes/Buffer Management.md",
     "Notes/imgs/Buffer Management/LRU worst.png",
@@ -213,7 +221,6 @@
     "Resources/project-handout/proj0/your-tasks.md",
     "Resources/project-handout/proj0/submitting.md",
     "Resources/project-handout/proj0/README.md",
-    "Resources/project-handout/proj0/getting-started.md",
-    "Resources/project-handout/hw0/README.md"
+    "Resources/project-handout/proj0/getting-started.md"
   ]
 }
