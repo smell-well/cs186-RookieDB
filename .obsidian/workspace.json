@@ -178,6 +178,9 @@
   },
   "active": "280636186b43d12f",
   "lastOpenFiles": [
+    "RookieDB/target/classes/edu/berkeley/cs186/database/concurrency/LockType.class",
+    "RookieDB/target/classes/edu/berkeley/cs186/database/concurrency/LockType$1.class",
+    "RookieDB/src/test/java/edu/berkeley/cs186/database/concurrency/TestLockType.java~",
     "Notes/Query Opt.md",
     "RookieDB/demo/34",
     "RookieDB/demo/33",
@@ -187,8 +190,6 @@
     "RookieDB/demo/29",
     "RookieDB/demo/28",
     "RookieDB/demo/27",
-    "RookieDB/demo/26",
-    "RookieDB/demo/25",
     "Readme.md",
     "Notes/排序.md",
     "Notes/Hash.md",

@@ -21,7 +21,40 @@ public enum LockType {
         if (a == null || b == null) {
             throw new NullPointerException("null lock type");
         }
-        // TODO(proj4_part1): implement
+
+        if (a == NL || b == NL) {
+            return true;
+        }
+
+        switch (a) {
+            case IS: {
+                if (b == IS || b == IX || b == S || b == SIX) {
+                    return true;
+                }
+                break;
+            }
+            case IX: {
+                if (b == IS || b == IX) {
+                    return true;
+                }
+                break;
+            }
+            case S: {
+                if (b == S || b == IS) {
+                    return true;
+                }
+                break;
+            }
+            case SIX: {
+                if (b == IS) {
+                    return true;
+                }
+                break;
+            }
+            case X: {
+                break;
+            }
+        }
 
         return false;
     }
@@ -53,7 +86,31 @@ public enum LockType {
         if (parentLockType == null || childLockType == null) {
             throw new NullPointerException("null lock type");
         }
-        // TODO(proj4_part1): implement
+
+        if (childLockType == LockType.NL) {
+            return true;
+        }
+
+        switch (parentLockType) {
+            case IS: {
+                if (childLockType == IS || childLockType == S) {
+                    return true;
+                }
+                break;
+            }
+            case IX: {
+                return true;
+            }
+            case S: {
+                break;
+            }
+            case SIX: {
+                return true;
+            }
+            case X: {
+                break;
+            }
+        }
 
         return false;
     }
@@ -68,7 +125,27 @@ public enum LockType {
         if (required == null || substitute == null) {
             throw new NullPointerException("null lock type");
         }
-        // TODO(proj4_part1): implement
+
+        switch (substitute) {
+            case NL: {
+                return required == NL;
+            }
+            case IS: {
+                return required == NL || required == IS;
+            }
+            case IX: {
+                return required == NL || required == IS || required == IX;
+            }
+            case S: {
+                return required == NL || required == S || required == IS;
+            }
+            case SIX: {
+                return !(required == X);
+            }
+            case X: {
+                return true;
+            }
+        }
 
         return false;
     }
