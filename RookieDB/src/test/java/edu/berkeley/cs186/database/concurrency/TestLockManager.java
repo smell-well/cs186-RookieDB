@@ -529,6 +529,7 @@ public class TestLockManager {
         DeterministicRunner runner = new DeterministicRunner(1);
         runner.run(0, () -> {
             lockman.acquire(transactions[0], dbResource, LockType.S);
+//            assertEquals(LockType.S, lockman.getLockType(transactions[0], dbResource));
             lockman.promote(transactions[0], dbResource, LockType.X);
         });
 

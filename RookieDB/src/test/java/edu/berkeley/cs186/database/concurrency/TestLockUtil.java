@@ -278,5 +278,19 @@ public class TestLockUtil {
         assertEquals(Collections.emptyList(), lockManager.log);
     }
 
+    @Test
+    @Category(PublicTests.class)
+    public void testXAfterS() {
+
+        lockManager.startLog();
+        LockUtil.ensureSufficientLockHeld(tableContext, LockType.S);
+        System.out.println(lockManager.log);
+
+        lockManager.clearLog();
+        LockUtil.ensureSufficientLockHeld(tableContext, LockType.X);
+        System.out.println(lockManager.log);
+    }
+
+
 }
 

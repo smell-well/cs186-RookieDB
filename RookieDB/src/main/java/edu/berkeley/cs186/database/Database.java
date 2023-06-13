@@ -40,6 +40,8 @@ import java.util.concurrent.Phaser;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
+import static java.util.Collections.reverse;
+
 /**
  * Database objects keeps track of transactions, tables, and indices
  * and delegates work to its disk manager, buffer manager, lock manager and
@@ -927,6 +929,17 @@ public class Database implements AutoCloseable {
         public void close() {
             try {
                 // TODO(proj4_part2)
+                // 先获取 LockContext
+                TransactionContext transaction = TransactionContext.getTransaction();
+                List<Lock> locks = lockManager.getLocks(transaction);
+                reverse(locks);
+                // 因为是从顶向下添加的锁，所以要从后往前释放
+                for (Lock lock : locks) {
+                    ResourceName name = lock.name;
+                    LockContext ctx = LockContext.fromResourceName(lockManager, name);
+                    ctx.release(this);
+                }
+
                 return;
             } catch (Exception e) {
                 // There's a chance an error message from your release phase

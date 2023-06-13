@@ -21,6 +21,10 @@ public class TestUtils {
         return new Record(true, 1, "a", 1.2f);
     }
 
+    public static Record createInsert() {
+        return new Record(true, 1, "b", 1.3f);
+    }
+
     public static TestSourceOperator createSourceWithAllTypes(int numRecords) {
         Schema schema = createSchemaWithAllTypes();
         List<Record> records = new ArrayList<>();

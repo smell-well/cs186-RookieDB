@@ -275,7 +275,7 @@ public class TestLockContext {
         LockContext r0 = dbLockContext;
 
         r0.acquire(t1, LockType.IS);
-        r0.escalate(t1);
+        r0.escalate(t1);  // S
         lockManager.startLog();
         r0.escalate(t1);
         r0.escalate(t1);

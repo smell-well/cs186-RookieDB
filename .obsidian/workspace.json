@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "2e6ef65243dc1b22",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Notes/B+树.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "280636186b43d12f",
             "type": "leaf",
             "state": {
@@ -31,8 +19,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -178,6 +165,12 @@
   },
   "active": "280636186b43d12f",
   "lastOpenFiles": [
+    "RookieDB/target/classes/edu/berkeley/cs186/database/concurrency/LockContext.class",
+    "Notes/B+树.md",
+    "Readme.md",
+    "RookieDB/target/classes/edu/berkeley/cs186/database/concurrency/LockManager.class",
+    "RookieDB/target/classes/edu/berkeley/cs186/database/concurrency/LockManager$1.class",
+    "RookieDB/target/classes/edu/berkeley/cs186/database/concurrency/LockManager$ResourceEntry.class",
     "RookieDB/target/classes/edu/berkeley/cs186/database/concurrency/LockType.class",
     "RookieDB/target/classes/edu/berkeley/cs186/database/concurrency/LockType$1.class",
     "RookieDB/src/test/java/edu/berkeley/cs186/database/concurrency/TestLockType.java~",
@@ -185,18 +178,11 @@
     "RookieDB/demo/34",
     "RookieDB/demo/33",
     "RookieDB/demo/32",
-    "RookieDB/demo/31",
-    "RookieDB/demo/30",
-    "RookieDB/demo/29",
-    "RookieDB/demo/28",
-    "RookieDB/demo/27",
-    "Readme.md",
     "Notes/排序.md",
     "Notes/Hash.md",
     "implement/Proj1.md",
     "implement/Proj2.md",
     "implement/Proj3.md",
-    "Notes/B+树.md",
     "Notes/Buffer Management.md",
     "Notes/imgs/Buffer Management/LRU worst.png",
     "Notes/Disk and Files.md",

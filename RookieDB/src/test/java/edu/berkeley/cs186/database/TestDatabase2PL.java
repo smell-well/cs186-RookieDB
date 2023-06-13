@@ -312,4 +312,32 @@ public class TestDatabase2PL {
             ), removeMetadataLogs(lockManager.log));
         }
     }
+
+    @Test
+    @Category(PublicTests.class)
+    public void testRecordReadInsert() {
+        String tableName = "tb1";
+
+        List<RecordId> rids = createTable(tableName, 4);
+        Record input = TestUtils.createRecordWithAllTypes();
+
+//        try(Transaction t0 = beginTransaction()) {
+//            t0.getTransactionContext().deleteRecord(tableName, rids.get(rids.size() - 1));
+//
+//        } finally {
+//            this.db.waitAllTransactions();
+//        }
+
+        lockManager.startLog();
+        try(Transaction t1 = beginTransaction()) {
+            // Read the first record
+            t1.getTransactionContext().sortedScan(tableName, "int");
+            System.out.println(removeMetadataLogs(lockManager.log));
+
+            // Insert a new record onto the last page
+            t1.insert(tableName, input);
+
+            System.out.println(removeMetadataLogs(lockManager.log));
+        }
+    }
 }

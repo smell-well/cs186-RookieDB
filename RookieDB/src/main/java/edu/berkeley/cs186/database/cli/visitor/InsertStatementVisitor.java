@@ -42,6 +42,7 @@ class InsertStatementVisitor extends StatementVisitor {
             }
             out.println("INSERT");
         } catch (Exception e) {
+            e.printStackTrace();
             out.println(e.getMessage());
             out.println("Failed to execute INSERT.");
         }
