@@ -17,7 +17,7 @@
 | proj1 | ok       | 6-6.5h |
 | proj2 | ok         |  15-20h      |
 | proj3 | ok         |  30h      |
-| proj4 |          |        |
+| proj4 | ok         |  40h      |
 | proj5 |          |        |
 | proj6 |          |        |
 
@@ -92,4 +92,24 @@ Task4:
 
 - Task 1
 同样的，要注意修改 当前层级 的锁时，要级联修改子节点和父节点中的锁的记录信息
+
+- Task 2
+进行多粒度锁控制时，需要分析好锁的升级情况。
+在进行测试时，发现一种隐式情况，即隐式升级为SIX锁的情况，需要我们在LockContext的promote过程进行一些判断，判断是否需要升级成SIX锁
+
+### proj5
+
+- Task 1
+
+1、**prevLSN** 主要是用于undo阶段的，所以不是表面的先前LSN，而是当前事务的上一个操作，和lastLSN很像，但是lastLSN是在transaction Table中的，而这个是在log record中
+
+2、appendToLog需要使用返回的值作为新的LSN，不能直接用record 的getLSN()
+
+- Task 6
+**Recory mode**
+Redo 阶段
+判断需不需要redo的，有一个条件 `pageLSN < currLSN`
+
+因为pageLSN 记录的是对该页的最后一个操作，如果这个数字大于等于 currLSN，说明当前操作已经刷盘，所以无需热都
+
 
